@@ -6,7 +6,7 @@ to display weather info from https://www.weatherapi.com/
 Requirements
 ------------
 - https://www.weatherapi.com/ account (get api key)
-- Adafruit Standard LCD 16x2 screen
+- Adafruit Standard LCD 16x2 screen + 10K ohm Potentiometer
 - Raspberry Pi 3/4
 
 Setup
@@ -19,17 +19,20 @@ Installing package
 
     sudo apt-get upgrade
     sudo apt-get install git pip3
-    pip3 install adafruit-circuitpython-charlcd
 
 	git clone https://github.com/MBousss/Pi-Weather-Monitor.git
 	cd Pi-Weather-Monitor/
 
+    pip3 install adafruit-circuitpython-charlcd
+
 Config package
 --------------------
 
-``location``: Location values https://www.weatherapi.com/docs/#apis-ip-lookup
+Update ``config.json`` file:
 
-``api_key``: https://www.weatherapi.com/my/
+- ``location``: Location values https://www.weatherapi.com/docs/#apis-ip-lookup
+
+- ``api_key``: https://www.weatherapi.com/my/
 
 
 ```json
@@ -41,5 +44,13 @@ Config package
 
 Run
 ===
+Run the program manualy:
 
     python3 weather.py
+
+
+Run on start-up
+--------------
+To automatically run package on boot run this command:
+
+	sudo python background-setup.py
