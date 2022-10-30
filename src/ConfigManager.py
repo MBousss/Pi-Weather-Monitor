@@ -1,8 +1,10 @@
+from pathlib import Path
 import json
+import os
 
 class ConfigManager:
     def __init__(self):
-        f = open("config.json")
+        f = open(os.path.dirname(os.path.abspath(__file__)) + "/../config.json")
         self.config = json.load(f)
         f.close()
         
