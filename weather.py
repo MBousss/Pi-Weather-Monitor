@@ -5,11 +5,12 @@ from src.DisplayManager import DisplayManager
 import time
 
 def main():
-    while True:
-        ow = OpenWeather()
-        ow_data = ow.getDisplayInfo()
+    ow = OpenWeather()
+    ow_data = ow.getDisplayInfo()
         
-        dp = DisplayManager()
+    dp = DisplayManager()
+    
+    while True:    
         dp.display(ow_data)
         
         # Last updated message

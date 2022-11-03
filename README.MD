@@ -1,11 +1,11 @@
 Introduction
 ============
-This package uses the Adafruit Standard LCD 16x2 screen in combination with a Raspberry Pi
-to display weather info from https://www.weatherapi.com/
+This package uses the Adafruit Standard LCD 16x2 screen in combination with a Raspberry Pi to display weather info from https://www.weatherapi.com/
 
 Requirements
 ------------
 - https://www.weatherapi.com/ account (get api key)
+  - Free tier availability
 - Adafruit Standard LCD 16x2 screen + 10K ohm Potentiometer
 - Raspberry Pi 3/4
 
@@ -33,24 +33,34 @@ Update ``config.json`` file:
 - ``location``: Location values https://www.weatherapi.com/docs/#apis-ip-lookup
 
 - ``api_key``: https://www.weatherapi.com/my/
+  
+- ``measuring_units``: Set measuring_unit of choice on true [default: "metric"]
 
 
 ```json
 {
     "location": "",
-    "api_key": ""
+    "api_key": "",
+    "measuring_units": {
+        "metric": true,
+        "imperial" : false
+    }
 }
 ```
 
-Run
+Manuel run
 ===
 Run the program manualy:
 
     python3 weather.py
 
+Exit program by running command ``CTRL + C``
+
 
 Run on start-up
---------------
+===============
+! Try out ``Manuel Run`` first to make sure config is set correct  
+
 To automatically run package on boot run this command:
 
 	sudo python background-setup.py

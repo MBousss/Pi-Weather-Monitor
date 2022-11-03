@@ -1,12 +1,17 @@
-from pathlib import Path
 import json
 import os
 
 class ConfigManager:
     def __init__(self):
-        f = open(os.path.dirname(os.path.abspath(__file__)) + "/../config.json")
-        self.config = json.load(f)
-        f.close()
+        file = open(os.path.dirname(os.path.abspath(__file__)) + "/../config.json")
+        self.config = json.load(file)
+        file.close()
+        
+    def getMeasuringUnit(self):
+        measuring_units = self.config['measuring_units']
+        for key in measuring_units.keys():
+            if measuring_units[key] == True:
+                return key;
         
     def getWeahterLocation(self):
         return self.config['location']
@@ -16,4 +21,3 @@ class ConfigManager:
     
     def getWeather(self):
         return self.config['weather']
-    

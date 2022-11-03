@@ -23,4 +23,4 @@ class DisplayManager:
         lcd.message = text
         
     def formatDataToText(self, data):
-        return "{}\n{}: {}".format(data['location'], data['text'], data['temp'])
+        return "{}\n{}".format(data['text'], data['temp'])
