@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 
 class ConfigManager:
     def __init__(self):
@@ -14,10 +15,19 @@ class ConfigManager:
                 return key;
         
     def getWeahterLocation(self):
-        return self.config['location']
+        return self.checkConfigValue('location')
     
     def getWeatherApiKey(self):
-        return self.config['api_key']
+        return self.checkConfigValue('api_key')
     
     def getWeather(self):
-        return self.config['weather']
+        return self.checkConfigValue('weather')
+    
+    def checkConfigValue(self, key):
+        if key not in self.config:
+            sys.exit("Config value '{}' does not exists".format(key))
+        
+        if self.config[key] == None or len(self.config[key]) == 0:
+            sys.exit("Config value '{}' is empty".format(key))
+        
+        return self.config[key]
