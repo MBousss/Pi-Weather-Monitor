@@ -28,7 +28,7 @@ Installing package
 Config package
 --------------------
 
-Update ``config.json`` file:
+Change ``config_example.json`` to ``config.json`` a update file content:
 
 - ``location``: Location values https://www.weatherapi.com/docs/#apis-ip-lookup
 
