@@ -5,7 +5,6 @@ This package uses the Adafruit Standard LCD 16x2 screen in combination with a Ra
 Requirements
 ------------
 - https://www.weatherapi.com/ account (get api key)
-  - Free tier availability
 - Adafruit Standard LCD 16x2 screen + 10K ohm Potentiometer
 - Raspberry Pi 3/4
 
