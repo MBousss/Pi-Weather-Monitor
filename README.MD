@@ -1,12 +1,20 @@
 Introduction
 ============
-This package uses the Adafruit Standard LCD 16x2 screen in combination with a Raspberry Pi to display weather info from https://www.weatherapi.com/
+This package uses the Adafruit Standard LCD 16x2 screen in combination with a Raspberry Pi to display weather info from supported weather APIs
 
 Requirements
 ------------
-- https://www.weatherapi.com/ account (get api key)
+- Selected account from supported APIs list
 - Adafruit Standard LCD 16x2 screen + 10K ohm Potentiometer
 - Raspberry Pi 3/4
+
+Supported APIs
+=============
+Free tears offer enough calls per month for personal usage. (Minimum required calls per month is 3000)
+
+- ``OpenWeatherMap``: https://openweathermap.org/
+
+- ``WeatherApi``: https://www.weatherapi.com/
 
 Setup
 =============
@@ -29,10 +37,12 @@ Config package
 
 Change ``config_example.json`` to ``config.json`` a update file content:
 
-- ``location``: Location values https://www.weatherapi.com/docs/#apis-ip-lookup
-
-- ``api_key``: https://www.weatherapi.com/my/
+- ``location``: Enter city name
   
+- ``api_key``: Enter API key of account
+  
+- ``weather_api``: Select API to be used [default: "OpenWeatherMap"]
+
 - ``measuring_units``: Set measuring_unit of choice on true [default: "metric"]
 
 
@@ -40,6 +50,10 @@ Change ``config_example.json`` to ``config.json`` a update file content:
 {
     "location": "",
     "api_key": "",
+    "weather_api": {
+        "OpenWeatherMap": true,
+        "WeatherApi" : false
+    },
     "measuring_units": {
         "metric": true,
         "imperial" : false
@@ -53,11 +67,12 @@ Run the program manualy:
 
     python3 weather.py
 
-Exit program by running command ``CTRL + C``
+Exit program by running command ``CTRL + Z``
 
 
 Run on start-up
 ===============
+
 ! Try out ``Manuel Run`` first to make sure config is set correct  
 
 To automatically run package on boot run this command:

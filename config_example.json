@@ -1,6 +1,10 @@
 {
     "location": "",
     "api_key": "",
+    "weather_api": {
+        "OpenWeatherMap": true,
+        "WeatherApi" : false
+    },
     "measuring_units": {
         "metric": true,
         "imperial" : false

@@ -1,15 +1,20 @@
 #!/usr/bin/env python
 
-from src.OpenWeather import OpenWeather
 from src.DisplayManager import DisplayManager
+from src.ConfigManager import ConfigManager
+import importlib
 import time
 
 def main():
     dp = DisplayManager()
+    config_manager = ConfigManager()
+    
+    # Import selected Weather_Api in config
+    weather_api = config_manager.getApi()
+    weather_manager = importlib.import_module("api.{}".format(weather_api), ".")
     
     while True:    
-        ow = OpenWeather()
-        ow_data = ow.getDisplayInfo()
+        ow_data = weather_manager.Weather(config_manager).getDisplayInfo()
         dp.display(ow_data)
         
         # Last updated message
